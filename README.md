@@ -68,3 +68,17 @@ Memory feasibility reserves 8% of device capacity. The default predicted slowdow
 The supplied local kernels each expose a stable workload phase, so their phase and whole-run fingerprints coincide. Multi-phase prepared inputs supply phase work budgets, different phase and whole-run descriptors, and ordered phase-pair measurements; phase feature ablations are meaningful on those inputs. The local collector is a controlled measurement source rather than the paper's eight model/system jobs. Scheduling scores describe replay of those measurements, with discretization controlled by `tick_s`. Trusted predictor files use Python pickle and should be loaded only from your own runs.
 
 Data, weights and generated outputs are ignored by Git. Run directories store the effective `config.json`, CSV measurements and JSON metrics. Plots read the generated measurement files.
+
+## Registered compact reproduction setting
+
+Six actual CPU kernel configurations collected solo and in all pairs; 100 depth-three trees; 48-job measured-pair scheduling replay. Stable kernels are single-phase, so phase removal is omitted from this compact comparison; multi-phase inputs remain supported by the formal schema.
+
+Run from the repository root after installation. The following commands use the registered setting; they are provided for execution and have not been run as part of the source review.
+
+```bash
+python -m interferesense collect --config configs/reproduce.json --output outputs/reproduce_measure
+python -m interferesense prepare --config configs/reproduce.json
+python -m interferesense compare --config configs/reproduce.json --output outputs/reproduce_comparison
+```
+
+This setting needs no external dataset or pretrained weights. Generated inputs and declared fault/shift laws define the finite task; reported quantities retain that provenance.

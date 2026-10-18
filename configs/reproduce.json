@@ -1,0 +1,74 @@
+{
+  "output": "outputs/main",
+  "data": "data/reproduce",
+  "raw": "outputs/reproduce_measure/raw.json",
+  "checkpoint": "",
+  "device": "cpu",
+  "seed": 17,
+  "threads": 1,
+  "gpu_index": 0,
+  "duration_s": 4.0,
+  "warmup_s": 1.0,
+  "sampling_s": 0.05,
+  "startup_timeout_s": 120,
+  "pcie_ceiling_bytes_s": 16000000000.0,
+  "storage_ceiling_bytes_s": 3000000000.0,
+  "network_ceiling_bytes_s": 1250000000.0,
+  "min_phase_samples": 20,
+  "pelt_penalty": 2.0,
+  "boundary_tolerance_s": 0.1,
+  "trees": 100,
+  "depth": 3,
+  "learning_rate": 0.05,
+  "specs": [
+    {
+      "id": "matmul_256",
+      "kernel": "matmul",
+      "size": 256
+    },
+    {
+      "id": "matmul_512",
+      "kernel": "matmul",
+      "size": 512
+    },
+    {
+      "id": "memory_256",
+      "kernel": "memory",
+      "size": 256
+    },
+    {
+      "id": "memory_512",
+      "kernel": "memory",
+      "size": 512
+    },
+    {
+      "id": "mlp_256",
+      "kernel": "mlp",
+      "size": 256
+    },
+    {
+      "id": "mlp_512",
+      "kernel": "mlp",
+      "size": 512
+    }
+  ],
+  "gpus": 2,
+  "memory_gb": 8.0,
+  "slowdown_cap": 1.5,
+  "normalization_s": 20.0,
+  "tick_s": 0.05,
+  "simulation_timeout_s": 10000.0,
+  "job_count": 48,
+  "job_duration_s": 3.0,
+  "arrival_spacing_s": 0.5,
+  "predictor_variant": "interferesense",
+  "variant": "interferesense",
+  "variants": [
+    "fcfs",
+    "memory",
+    "static",
+    "no_correction",
+    "no_debt",
+    "interferesense"
+  ]
+}
